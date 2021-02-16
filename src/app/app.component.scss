@@ -1,0 +1,48 @@
+.logo-text{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 22px;
+}
+
+.add-button{
+    border: 0;
+    background-color: white;
+    font-size: 50px;
+    transition: 0.1s ease;
+    transform: scale(0.5);
+
+    &:hover {
+        transform: scale(1);
+    }
+
+    &:focus{
+        border: 0;
+        outline: none;
+    }
+}
+
+  .note {
+      border-style: solid;
+      border-width: 2px;
+      margin: 20px;
+      box-shadow: 5px 5px 2px 0px rgba(0,0,0,0.8);
+  }
+
+  .separator {
+    border-top: 1px solid black;
+    width: 97%;
+    margin: auto;
+  }
+
+  .textbox {
+      
+  }
+
+  .note-body {
+      min-height: 50px;
+  }
+
+  .remove {
+    border: 0;
+    background-color: white;
+    float: right;
+  }

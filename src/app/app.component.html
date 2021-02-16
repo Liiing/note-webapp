@@ -1,0 +1,52 @@
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="container">
+    <div class="navbar-brand">
+      <svg class="logo" height="30" width="400">
+        <text x="0" y="30" class="logo-text">L I N G - Notes</text>
+        Sorry, your browser does not support inline SVG.
+      </svg>
+
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+
+    <div id="navbarBasicExample" class="navbar-menu">
+      <div class="navbar-end">
+        <button class="add-button" (click)="addNote()">
+          +
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div [@listAnimation]="notes.length" class="container">
+  <article class="note" *ngFor="let note of notes" >
+    <div class="note-header divTitle" (click)="onTitleInput(note.id)">
+      <input 
+        class="textbox"
+        *ngIf = "selectedNote === note && titleSelected === true ; else plainTitle"
+        [(value)]="selectedNote.title"
+        (change)="changeNoteTitle(note.id, $event)"
+        (blur)="onBlurTitle(note.id, note.index)"
+      />
+      <ng-template #plainTitle>{{note.title}}</ng-template>
+      <button class="remove" aria-label="delete" (click)="deleteNote(note.id)">X</button>
+    </div>
+    <hr class="separator">
+    <div class="note-body divContent" (click)="onContentInput(note.id)">
+      <input 
+        class="textbox"
+        *ngIf = "selectedNote === note  && contentSelected === true ; else plainContent"
+        [(value)]="selectedNote.content"
+        (change)="changeNoteContent(note.id, $event)"
+        (blur)="onBlurContent(note.id, note.index)"
+      />
+        <ng-template #plainContent>{{note.content}}</ng-template>
+    </div>
+  </article>
+</div>
